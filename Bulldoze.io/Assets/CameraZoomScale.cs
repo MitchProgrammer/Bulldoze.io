@@ -21,8 +21,8 @@ public class CameraZoomScale : MonoBehaviour
         float cameraScale = ps.scale;
 
         float cameraX = playerX;
-        float cameraY = (cameraScale + 5) * 1.2f;
-        float cameraZ = playerZ + -(cameraScale + 5) * 1.2f;
+        float cameraY = (cameraScale + 10) * 1.2f;
+        float cameraZ = playerZ + -(cameraScale + 10) * 1.2f;
 
         Vector3 newCameraPos = new Vector3(cameraX, cameraY, cameraZ);
 

@@ -8,6 +8,10 @@ public class PlayerScale : MonoBehaviour
 
     public float maxScale;
 
+    public float score;
+
+    public int level;
+
     public Vector3 vectorScale;
 
     // Start is called before the first frame update
@@ -15,19 +19,32 @@ public class PlayerScale : MonoBehaviour
     {
         vectorScale = new Vector3(1, 1, 1);
         scale = 1;
+        level = 1;
+        score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow)) UpdateScale();
+        Levelling();
+    }
+
+    public void Levelling()
+    {
+        if (level == maxScale) return;
+
+        float scoreForNextLevel = Mathf.Pow(level + 1, 3);
+
+        if (score >= scoreForNextLevel)
+        {
+            UpdateScale();
+        }
     }
 
     public void UpdateScale()
     {
-        if (scale >= maxScale) return;
-
         scale++;
+        level++;
 
         vectorScale = new Vector3(scale, scale, scale);
 
